@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <title>HTML Assignment</title>
+		
+        <meta charset="UTF-8">
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <style>
+		
+           .tab-bar{
+		   width:100%;overflow:hidden
+		   }
+		   .color-black{color:#fff;}
+		   .tab-button{color:#000;background-color:#f1f1f1;padding:8px 16px}
+		   .tab-bar-item{padding:8px 16px;font-family: cursive;float:left;background-color:inherit;color:inherit;width:auto;border:none;outline:none;display:block}
+		   .tab-item{font-family: cursive;,padding:8px 16px;float:right;background-color:inherit;color:inherit;width:auto;border:none;outline:none;display:block}
+		   .tab-center{text-align:center}
+		   .tab-grey{color:#000!important;background-color:#f1f1f1!important}
+		   body  {
+				background-image: url("back.jpg");
+				
+				height: auto;
+				background-repeat: no-repeat;
+				background-size: cover;
+			}
+			.tab-form{padding:8px 16px!important}
+			.container-fluid{padding-right:15px;padding-left:15px;margin-right:auto;margin-left:auto; margin-bottom:15px}
+			h2 {
+    display: block;
+    font-size: 2.5em;
+	font-family: algerian;
+    padding: 0px 0px 0px 351px;
+    -webkit-margin-before: 0.83em;
+    -webkit-margin-after: 0.83em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    font-weight: bold;
+}
+
+
+legend {
+font-size:1.2em;;
+}
+fieldset {
+color:white;
+    display: block;
+    -webkit-margin-start: 2px;
+    -webkit-margin-end: 2px;
+    -webkit-padding-before: 0.35em;
+    -webkit-padding-start: 0.75em;
+    -webkit-padding-end: 0.75em;
+    -webkit-padding-after: 0.625em;
+    min-width: -webkit-min-content;
+	border-color:white
+	font-size:18em;;
+  
+}
+
+	h3{
+    display: block;
+    font-size: 2em;
+	    font-family: cursive;
+   
+    -webkit-margin-before: 0.83em;
+    -webkit-margin-after: 0.83em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    font-weight: bold;
+}
+
+
+table{
+color:white;
+padding:0px 0px 0px 411px;
+}
+        </style>
+		
+		 <script>
+			function yesnoCheck(that) {
+				if (that.value == "other") {
+					document.getElementById("ifYes").style.display = "block";
+				} else {
+					document.getElementById("ifYes").style.display = "none";
+				}
+			}
+			function storeDetails(){
+			var x = document.getElementsByName("city")[0].value;
+			if(x==="other"){
+			var y=document.getElementsByName("city")[1].value
+			}
+			else{
+			var y=document.getElementsByName("city")[0].value;
+			}
+			
+			var userDetails={
+			"firstName": document.getElementsByName("firstName")[0].value,
+			"lastName": document.getElementsByName("lastName")[0].value,
+			"email": document.getElementsByName("email")[0].value,
+			"city": y,
+			"age": document.getElementsByName("age")[0].value,
+			"videoName": document.getElementsByName("videoName")[0].value
+			};
+			var userDetails = JSON.stringify(userDetails);
+			localStorage.setItem("userDetails", userDetails);
+			
+			//location.href = '/Users/RA358745/Downloads/details.html';
+			}
+		</script>
+		<script>
+		function getDate(){
+		var today = new Date();
+		var str=JSON.stringify(today);
+		var res=str.split("-");
+		
+		var monthNames = ["January", "February", "March", "April", "May", "June",
+		  "July", "August", "September", "October", "November", "December"
+		];
+		var date=res[2][0]+res[2][1]+' '+ monthNames[today.getMonth()]+' '+today.getFullYear();
+		console.log(date);
+		
+		document.getElementById("demo").innerHTML = date;
+		}
+		
+		</script>
+
+    </head>
+    <body onload="getDate()">
+	<div class="tab-bar color-black">
+	<h2>Amazing Online Video Library</h2>
+	<nav>
+	  <a href="index.html" class="tab-button tab-bar-item">Home</a>
+	  <a href="about.html" class="tab-button tab-bar-item">About Us</a>
+	  <a href="career.html" class="tab-button tab-bar-item">Career</a>
+	  <a href="contact.html" class="tab-button tab-bar-item">Contact</a>
+	  <div class="tab-button tab-item" id="demo"></div>
+	</nav>
+	</div>
+	
+	<div class="tab-center">
+	<section>
+	  <h3>Video of the week</h3>
+	 <iframe width="560" height="315" src="https://www.youtube.com/embed/IsXEVQRaTX8?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+	  </section>
+	
+	<section>
+	<form action="details.html">
+	<fieldset>
+		<legend>User choice</legend>
+		
+		
+		<table>
+		
+       <tr><td> <span>First Name &nbsp&nbsp </span></td>
+	   
+	   <td><input type="text" name="firstName"   required/></td></tr>
+       <tr><td> <span>Last Name   &nbsp&nbsp </span></td><td>  <input type="text" name="lastName" required/></td></tr>
+	   
+	   <tr><td> <span>Email ID &nbsp&nbsp </span></td><td>  <input  type="email"name="email"  required/></td></tr>
+	    <tr><td> <span>Age &nbsp&nbsp </span></td><td>  <input  type="number" name="age"min="18" max="120" required/></td></tr>
+    
+		
+       <tr><td> <span>Video choice of the week &nbsp &nbsp </span></td><td><input type="text" name="videoName"required/></td></tr>
+      <tr><td>   <span>City &nbsp  &nbsp </span></td><td><select name="city" onchange="yesnoCheck(this);">
+		  <option value="" selected disabled hidden>Choose your city &nbsp  &nbsp </option><br>
+		  <option value="Delhi">Delhi</option>
+		 
+		  <option value="Mumbai">Mumbai</option>
+		  <option value="Kolkata">Kolkata</option>
+		  <option value="Chennai">Chennai</option>
+		  <option value="Bangalore ">Bengaluru</option>
+		  <option value="Hyderabad">Hyderabad</option>
+		 
+		  <option value="other">others</option>
+		</select></td>
+		
+		<td><div id="ifYes" style="display: none;">
+		<label><input type="text" name="city" placeholder="Enter your City" />
+		<br>
+        </div></td></tr>
+		<tr><td> <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <button type="submit"  onclick="storeDetails();">Submit</button></td></tr>
+		</table>
+		
+       
+	</fieldset>	
+    </form>
+	</section>
+	</div>
+    </body>
+</html>

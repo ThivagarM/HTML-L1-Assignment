@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <title>HTML Assignment</title>
+		
+        <meta charset="UTF-8">
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <style>
+         
+           .tab-bar{
+		   width:100%;overflow:hidden
+		   }
+		   .color-black{color:#fff;}
+		   .tab-button{color:#000;background-color:#f1f1f1;padding:8px 16px}
+		   .tab-bar-item{padding:8px 16px;font-family: cursive;float:left;background-color:inherit;color:inherit;width:auto;border:none;outline:none;display:block}
+		   .tab-item{font-family: cursive;,padding:8px 16px;float:right;background-color:inherit;color:inherit;width:auto;border:none;outline:none;display:block}
+		   .tab-center{text-align:center}
+		   .tab-grey{color:#000!important;background-color:#f1f1f1!important}
+		   body  {
+				background-image: url("back.jpg");
+				
+				height: auto;
+				background-repeat: no-repeat;
+				background-size: cover;
+			}
+			.tab-form{padding:8px 16px!important}
+			.container-fluid{padding-right:15px;padding-left:15px;margin-right:auto;margin-left:auto; margin-bottom:15px}
+			h1 {
+    display: block;
+    font-size: 2.5em;
+	font-family: algerian;
+    padding: 0px 0px 0px 351px;
+    -webkit-margin-before: 0.83em;
+    -webkit-margin-after: 0.83em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    font-weight: bold;
+}
+
+
+legend {
+font-size:1.2em;;
+}
+fieldset {
+background-image: url("about.png");
+color:black;
+    display: block;
+    -webkit-margin-start: 2px;
+    -webkit-margin-end: 2px;
+    -webkit-padding-before: 0.35em;
+    -webkit-padding-start: 0.75em;
+    -webkit-padding-end: 0.75em;
+    -webkit-padding-after: 15.625em;
+    min-width: -webkit-min-content;
+	border-color:white
+	font-size:18em;;
+  
+}
+
+	h3{
+    display: block;
+    font-size: 2em;
+	    font-family: cursive;
+   
+    -webkit-margin-before: 0.83em;
+    -webkit-margin-after: 0.83em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    font-weight: bold;
+}
+
+
+
+        </style>
+		<script>
+		function getDate(){
+		var today = new Date();
+		var str=JSON.stringify(today);
+		var res=str.split("-");
+		
+		var monthNames = ["January", "February", "March", "April", "May", "June",
+		  "July", "August", "September", "October", "November", "December"
+		];
+		var date=res[2][0]+res[2][1]+' '+ monthNames[today.getMonth()]+' '+today.getFullYear();
+		console.log(date);
+		
+		document.getElementById("demo").innerHTML = date;
+		}
+		</script>
+    </head>
+    <body onload="getDate()">
+	<div class="tab-bar color-black">
+	<h1>Amazing Online Video Library</h1>
+	<nav>
+	  <a href="index.html" class="tab-button tab-bar-item">Home</a>
+	  <a href="about.html" class="tab-button tab-bar-item">About Us</a>
+	  <a href="career.html" class="tab-button tab-bar-item">Career</a>
+	  <a href="contact.html" class="tab-button tab-bar-item">Contact</a>
+	  <div class="tab-button tab-item" id="demo"></div>
+	</nav>
+	</div>
+	<div class="tab-center">
+	<fieldset>
+		<legend>About Us</legend>
+		<p>Video lends itself to blended learning more easily as well. Managers are often terrible trainers but wonderful facilitators. Video provides them the instructional support they need.” – Dan Cooper</p><br>
+		<p>Video learning based on user suggestion</p>
+		<p>Dreams facilitators! -Bangalore</p>
+		
+		<p></p>
+		<p></p>
+		<p></p>
+	</fieldset>	
+    </form>
+	</section>
+	</div>
+    </body>
+</html>
